@@ -137,6 +137,9 @@
 .marquee.typ_color_banner {background: linear-gradient(to right, #ec2f4b, #7e43f6, #009fff);  font-family: 'Poppins', sans-serif;}
 .marquee.typ_color_banner .item {height: 130px;line-height: 130px;font-size: 50px;font-weight: 600;text-transform: uppercase;animation-duration: 30s;}
 
+@media (max-width:768px){
+  .marquee.typ_color_banner .item {height: 80px;line-height: 80px;font-size: 30px;}
+}
 @keyframes marquee {
     0% {-webkit-transform: translateX(0);transform: translateX(0);}
     100% {-webkit-transform: translateX(-100%);transform: translateX(-100%);}

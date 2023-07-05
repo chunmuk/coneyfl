@@ -2,13 +2,13 @@
   <header>
     <div class="signup_head">
       <router-link to="/">
-        <img src="/images/h_logo.png" class="singup_logo" />
+        <img src="/images/h_logo.png" class="signup_logo" />
       </router-link>
     </div>
     <div class="signup_title">
       <slot name="title"></slot>
     </div>
-    <div class="singup_sub">
+    <div class="signup_sub">
       <slot name="sub_txt"></slot>
     </div>
   </header>
@@ -34,12 +34,15 @@ header {
   text-align: center;
   color: var(--font-black);
 }
-.singup_sub {
+.signup_sub {
   font-family: "Pretendard";
   font-weight: 400;
   font-size: 0.875rem;
   text-align: center;
   color: #1d2232;
   margin-bottom: 28px;
+}
+.signup_logo {
+  margin-left:30px;  
 }
 </style>

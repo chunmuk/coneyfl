@@ -3,7 +3,7 @@
     <div class="footer_center">
       <div class="footer_wrap">
         <div class="foot_left">
-          <router-link to="/"><img src="/images/foot_logo.png" /></router-link>
+          <router-link to="/"><img src="/images/foot_logo.png" class="signup_logo"/></router-link>
         </div>
         <div class="foot_right">
           <ul>
@@ -16,7 +16,7 @@
       </div>
       <p class="bottom_text">By experience, Through discovery!</p>
     </div>
-    <p class="copyright">(주)우수아이아 | 175-88-03065 | 서울시 금천구 디지털10길,9 G벨리테크플랫폼 7F</p>
+    <p class="copyright">(주)우수아이아 | 175-88-03065<br>서울시 금천구 디지털10길,9 G벨리테크플랫폼 7F</p>
     <p class="copyright">&copy; USUAIA Inc.</p>
   </footer>
 </template>
@@ -48,6 +48,9 @@
   flex-direction: column;
   gap: 35px;
 }
+.footer_wrap .signup_logo {
+  margin-left:30px;
+}
 .foot_right ul {
   display: flex;
   gap: 32px;
@@ -69,7 +72,7 @@
   margin: 0 auto;
   padding-top: 12px;
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #9397a2;
   text-align: center;
 }

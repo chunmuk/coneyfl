@@ -99,7 +99,7 @@ export default {
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 800;
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 4.813rem;
   /* opacity: 0; */
   color: var(--font-black);

@@ -16,7 +16,8 @@
       </div>
       <p class="bottom_text">By experience, Through discovery!</p>
     </div>
-    <p class="copyright">&copy; UCONE Inc.</p>
+    <p class="copyright">(주)우수아이아 | 175-88-03065 | 서울시 금천구 디지털10길,9 G벨리테크플랫폼 7F</p>
+    <p class="copyright">&copy; USUAIA Inc.</p>
   </footer>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="hader_center">
-      <router-link to="/"><img src="/images/h_logo.svg" /></router-link>
+      <router-link to="/"><img src="/images/h_logo.png" /></router-link>
 
       <router-link to="/signup">
         <div class="btn_sign_up">

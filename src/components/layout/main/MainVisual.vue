@@ -7,7 +7,7 @@
         </div>
         <p class="p01 line-1 anim-typewriter"></p>
 
-        <p class="p02">우리는 <span>코니</span>입니다!</p>
+        <p class="p02"><span>코니라운지</span>에 오신 것을</p>
         <p class="p02">환영합니다.</p>
       </div>
       <div class="main_v_right">

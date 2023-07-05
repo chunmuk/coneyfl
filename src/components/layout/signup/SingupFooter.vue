@@ -3,7 +3,7 @@
     <div class="footer_center">
       <div class="footer_wrap">
         <div class="foot_left">
-          <router-link to="/"><img src="/images/foot_logo.svg" /></router-link>
+          <router-link to="/"><img src="/images/foot_logo.png" /></router-link>
         </div>
         <div class="foot_right">
           <ul>

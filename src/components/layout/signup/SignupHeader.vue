@@ -2,7 +2,7 @@
   <header>
     <div class="signup_head">
       <router-link to="/">
-        <img src="/images/h_logo.svg" class="singup_logo" />
+        <img src="/images/h_logo.png" class="singup_logo" />
       </router-link>
     </div>
     <div class="signup_title">

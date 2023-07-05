@@ -3,7 +3,7 @@
     <div class="footer_center">
       <div class="footer_wrap">
         <div class="foot_left">
-          <img src="/images/foot_logo.svg" />
+          <img src="/images/foot_logo.png" />
         </div>
         <div class="foot_right">
           <ul>

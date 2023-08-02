@@ -1,6 +1,12 @@
 <template>
   <section class="login">
     <div class="sub_center">
+      <Modal01 v-if="showModal" @close="showModal = false">
+        <!-- 모달 내용 -->
+        <template v-slot:modal_txt>서비스 준비중입니다.</template>
+        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal">확인</ButtonBlue></template>
+      </Modal01>
+      
       <LoginHeader>
         <template v-slot:title>
           로그인
@@ -20,7 +26,7 @@
           <div class="login_btn" @click="chkForm">코니플 시작하기</div>
 
           <p class="or_p"></p>
-
+          <!--
           <div class="sns_wrap">
             <router-link to="/login3">
               <div class="sns_row">
@@ -38,6 +44,23 @@
                 <p>구글</p>
               </div>
             </router-link>
+          </div>
+          -->
+
+          <div class="sns_wrap">
+            <div class="sns_row" @click="showModal = true">
+              <div id="kakao" class="sns_btn">
+                <img src="/images/kakaotalk.svg" />
+              </div>
+              <p>카카오톡</p>
+            </div>
+          
+            <div class="sns_row" @click="showModal = true">
+              <div id="goggle" class="sns_btn">
+                <img src="/images/google.svg" />
+              </div>
+              <p>구글</p>
+            </div>
           </div>
           
           <div class="or_p">
@@ -64,14 +87,25 @@
 <script>
 import LoginHeader from "@/components/layout/login/LoginHeader.vue";
 import LoginFooter from "@/components/layout/login/LoginFooter.vue";
+import ButtonBlue from "@/components/common/ButtonBlue.vue";
+import ButtonWht from "@/components/common/ButtonWht.vue";
 import Button from "@/components/common/Button.vue";
+import Modal01 from "@/components/common/Modal01.vue";
 import router from "../router";
 
 export default {
   components: {
     LoginHeader,
     LoginFooter,
+    ButtonBlue,
+    ButtonWht,
     Button,
+    Modal01
+  },
+  data() {
+    return {
+      showModal: false,
+    };
   },
   methods: {
     chkForm() {
@@ -84,12 +118,13 @@ export default {
         emailInput.focus();
         return;
       }
+      /*
       if (!emailRegex.test(emailValue)) {
         alert("올바른 이메일 주소를 입력해주세요.");
         emailInput.focus();
         return;
       }
-
+      */
       const passwordInput = this.$refs.passwordInput;
       const passwordValue = passwordInput.value.trim();
 
@@ -99,6 +134,9 @@ export default {
         return;
       }
       router.push("/signup2");
+    },
+    closeModal() {
+      this.showModal = false;
     },
   },
 };

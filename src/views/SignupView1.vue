@@ -1,6 +1,12 @@
 <template>
   <section class="signup">
     <div class="sub_center">
+      <Modal01 v-if="showModal" @close="showModal = false">
+        <!-- 모달 내용 -->
+        <template v-slot:modal_txt>서비스 준비중입니다.</template>
+        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal">확인</ButtonBlue></template>
+      </Modal01>
+
       <SignupHeader>
         <template v-slot:title>
           코니로 등록하고<br />다양한 혜택을 누리세요!
@@ -9,7 +15,7 @@
 
       <div class="signup_wrap">
         <p class="or_p">SNS 계정으로 시작하기</p>
-
+        <!--
         <div class="sns_wrap">
           <router-link to="/signup3">
             <div class="sns_row">
@@ -27,6 +33,22 @@
               <p>구글</p>
             </div>
           </router-link>
+        </div>
+        -->
+        <div class="sns_wrap">
+          <div class="sns_row" @click="showModal = true">
+            <div id="kakao" class="sns_btn">
+              <img src="/images/kakaotalk.svg" />
+            </div>
+            <p>카카오톡</p>
+          </div>
+        
+          <div class="sns_row" @click="showModal = true">
+            <div id="goggle" class="sns_btn">
+              <img src="/images/google.svg" />
+            </div>
+            <p>구글</p>
+          </div>
         </div>
         
         <p class="or_p">이메일로 시작하기</p>
@@ -60,12 +82,12 @@
 
           <div class="signup_row">
             <p>비밀번호<span class="essential"></span></p>
-            <input type="pwd" ref="pwdInput" placeholder="비밀번호를 입력해주세요."/>
+            <input type="password" ref="pwdInput" placeholder="비밀번호를 입력해주세요."/>
           </div>
 
           <div class="signup_row">
             <p>비밀번호 확인<span class="essential"></span></p>
-            <input type="repwd" ref="repwdInput" placeholder="비밀번호를 입력해주세요."/>
+            <input type="password" ref="repwdInput" placeholder="비밀번호를 입력해주세요."/>
           </div>
 
           <div class="signup_btn" @click="chkForm">코니플 가입하기</div>
@@ -88,14 +110,25 @@
 <script>
 import SignupHeader from "@/components/layout/signup/SignupHeader.vue";
 import SingupFooter from "@/components/layout/signup/SingupFooter.vue";
+import ButtonBlue from "@/components/common/ButtonBlue.vue";
+import ButtonWht from "@/components/common/ButtonWht.vue";
 import Button from "@/components/common/Button.vue";
+import Modal01 from "@/components/common/Modal01.vue";
 import router from "../router";
 
 export default {
   components: {
     SignupHeader,
     SingupFooter,
+    ButtonBlue,
+    ButtonWht,
     Button,
+    Modal01
+  },
+  data() {
+    return {
+      showModal: false,
+    };
   },
   methods: {
     chkForm() {
@@ -108,21 +141,25 @@ export default {
         emailInput.focus();
         return;
       }
+      /*
       if (!emailRegex.test(emailValue)) {
         alert("올바른 이메일 주소를 입력해주세요.");
         emailInput.focus();
         return;
       }
-
+      */
       const pwdInput = this.$refs.pwdInput;
       const pwdValue = pwdInput.value.trim();
-
+      
       if (!pwdValue) {
         alert("비밀번호를 입력해주세요.");
         pwdValue.focus();
         return;
       }
       router.push("/signupSuccess");
+    },
+    closeModal() {
+      this.showModal = false;
     },
   },
 };

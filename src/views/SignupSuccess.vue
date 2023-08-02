@@ -266,10 +266,12 @@ export default {
   display: none;
 }
 .btnWrap {
-  width:700px;
+  width:100%;
+  max-width:700px;
   margin:140px auto 200px;
   display: flex; 
-  justify-content: space-between;
+  justify-content:center;
+  gap:10px;
 }
 
 @media (max-width: 1280px) {
@@ -346,8 +348,6 @@ export default {
   .btnWrap {
     width:100%;
     margin:100px auto;
-    justify-content: space-between;
-    gap: 10px;
   }
   .fixedBox {
     position: fixed;

@@ -40,4 +40,13 @@
     font-size: 1.063rem;
   }
 }
+@media (max-width: 500px) {
+  .slide_btn {
+    width: 120px;
+    height: 50px;
+  }
+  .btn_text {
+    font-size: 0.9rem;
+  }
+}
 </style>

@@ -3,12 +3,36 @@
     <div class="hader_center">
       <router-link to="/"><img src="/images/h_logo.png" /></router-link>
 
-      <router-link to="/signup">
-        <div class="btn_sign_up">
-          <img src="/images/signupBtn.svg" />
-          회원가입
-        </div>
-      </router-link>
+      <div class="flexWrap pcMenu">
+        <router-link to="/login">
+          <div class="header_btn btn_login">
+            <img src="/images/loginBtn.svg" />
+            로그인
+          </div>
+        </router-link>
+
+        <router-link to="/signup">
+          <div class="header_btn btn_sign_up">
+            <img src="/images/signupBtn.svg" />
+            회원가입
+          </div>
+        </router-link>
+      </div>
+      
+      <div class="flexWrap mobileMenu">
+        <router-link to="/login">
+          <div class="header_btn">
+            <img src="/images/loginBtn_m.png" />
+          </div>
+        </router-link>
+
+        <router-link to="/signup">
+          <div class="header_btn">
+            <img src="/images/signupBtn_m.png" />
+          </div>
+        </router-link>
+      </div>
+
     </div>
   </header>
 </template>
@@ -30,16 +54,28 @@
   align-items: center;
   justify-content: space-between;
 }
-.btn_sign_up {
+.hader_center .flexWrap {
+  display:flex;
+}
+.header .mobileMenu {
+  display: none;
+}
+.header_btn{
   padding: 8px 16px;
   box-sizing: border-box;
-  background: #ed32d1;
   border-radius: 50px;
   color: #fff;
   display: flex;
   font-size: 1.25rem;
   align-items: center;
   gap: 5px;
+}
+.btn_sign_up {
+  background: #ed32d1;
+}
+.btn_login {
+  background: #9397a2;
+  margin-right:10px;
 }
 @media (max-width: 1300px) {
   .hader_center {
@@ -48,12 +84,20 @@
   }
 }
 @media (max-width: 768px) {
+  .header .mobileMenu {
+  display: flex;
+}
+.header .pcMenu {
+  display: none;
+}
   .hader_center {
     padding: 0 24px;
     text-align: center;
   }
-  .btn_sign_up {
+  
+  .header_btn {
     font-size: 0.875rem;
+    padding: 8px 10px;
   }
 }
 </style>

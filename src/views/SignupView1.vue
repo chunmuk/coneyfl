@@ -6,41 +6,80 @@
           코니로 등록하고<br />다양한 혜택을 누리세요!
         </template>
       </SignupHeader>
-      <form name="frm">
-        <div class="signup_wrap">
+
+      <div class="signup_wrap">
+        <p class="or_p">SNS 계정으로 시작하기</p>
+
+        <div class="sns_wrap">
+          <router-link to="/signup3">
+            <div class="sns_row">
+              <div id="kakao" class="sns_btn">
+                <img src="/images/kakaotalk.svg" />
+              </div>
+              <p>카카오톡</p>
+            </div>
+          </router-link>
+          <router-link to="/signup3">
+            <div class="sns_row">
+              <div id="goggle" class="sns_btn">
+                <img src="/images/google.svg" />
+              </div>
+              <p>구글</p>
+            </div>
+          </router-link>
+        </div>
+        
+        <p class="or_p">이메일로 시작하기</p>
+
+        <form name="frm">
           <div class="signup_row">
-            <p>이메일</p>
-            <input type="text" name="email" ref="emailInput" />
+            <p>이름<span class="essential"></span></p>
+            <input type="text" name="name" ref="nameInput" placeholder="이름을 입력해주세요."/>
           </div>
+
+          <div class="signup_row signup_row02">
+            <p>연락처<span class="essential"></span></p>
+            <div class="flexWrap">
+              <input type="phone" ref="phoneInput" placeholder="'-' 없이 숫자만"/>
+              <a class="grayBtn" href="">인증번호 전송</a>
+            </div>
+          </div>
+
+          <div class="signup_row signup_row02">
+            <p>인증번호<span class="essential"></span></p>
+            <div class="flexWrap">
+              <input type="cNum" ref="cNumInput" placeholder="인증번호 입력"/>
+              <a class="whiteBtn" href="">인증번호 확인</a>
+            </div>
+          </div>
+
           <div class="signup_row">
-            <p>비밀번호</p>
-            <input type="password" ref="passwordInput" />
+            <p>이메일<span class="essential"></span></p>
+            <input type="email" ref="emailInput" placeholder="이메일을 입력해주세요."/>
+          </div>
+
+          <div class="signup_row">
+            <p>비밀번호<span class="essential"></span></p>
+            <input type="pwd" ref="pwdInput" placeholder="비밀번호를 입력해주세요."/>
+          </div>
+
+          <div class="signup_row">
+            <p>비밀번호 확인<span class="essential"></span></p>
+            <input type="repwd" ref="repwdInput" placeholder="비밀번호를 입력해주세요."/>
           </div>
 
           <div class="signup_btn" @click="chkForm">코니플 가입하기</div>
-
-          <p class="or_p">또는</p>
-
-          <div class="sns_wrap">
-            <router-link to="/signup3">
-              <div class="sns_row">
-                <div id="kakao" class="sns_btn">
-                  <img src="/images/kakaotalk.svg" />
-                </div>
-                <p>카카오톡</p>
-              </div>
-            </router-link>
-            <router-link to="/signup3">
-              <div class="sns_row">
-                <div id="goggle" class="sns_btn">
-                  <img src="/images/google.svg" />
-                </div>
-                <p>구글</p>
-              </div>
-            </router-link>
+          <div class="lineBox">
+            <div class="grayLine"></div>
+            <div class="txtBox">or</div>
+            <div class="grayLine"></div>
           </div>
-        </div>
-      </form>
+            
+          <router-link to="/login">
+           <div class="login_btn">로그인</div>
+          </router-link>
+        </form>
+      </div>
       <SingupFooter></SingupFooter>
     </div>
   </section>
@@ -75,15 +114,15 @@ export default {
         return;
       }
 
-      const passwordInput = this.$refs.passwordInput;
-      const passwordValue = passwordInput.value.trim();
+      const pwdInput = this.$refs.pwdInput;
+      const pwdValue = pwdInput.value.trim();
 
-      if (!passwordValue) {
+      if (!pwdValue) {
         alert("비밀번호를 입력해주세요.");
-        passwordInput.focus();
+        pwdValue.focus();
         return;
       }
-      router.push("/signup2");
+      router.push("/signupSuccess");
     },
   },
 };
@@ -120,6 +159,18 @@ export default {
   color: #1d2232;
   margin-bottom: 12px;
 }
+.signup_row > p {
+  position: relative;
+}
+.signup_row .essential{
+  width: 4px;
+  height: 4px;
+  background: #2c3af1;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top:0;
+}
 .signup_row input {
   width: 100%;
   height: 48px;
@@ -128,6 +179,48 @@ export default {
   margin-top: 8px;
   padding: 12px;
   box-sizing: border-box;
+}
+.signup_row02 .flexWrap{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.signup_row02 input {
+  width: 67%;
+  height: 48px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  margin-top: 8px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.signup_row02 .flexWrap .grayBtn {
+  width:30%;
+  height:48px;
+  margin-top:8px;
+  font-size:12px;
+  font-weight: 400;
+  color:#fff;
+  line-height: 48px;
+  text-align: center;
+  display: block;
+  background: #9397A2;
+  border-radius: 5px;
+}
+.signup_row02 .flexWrap .whiteBtn {
+  width:30%;
+  height:48px;
+  margin-top:8px;
+  font-size:12px;
+  font-weight: 400;
+  color:#9397A2;
+  line-height: 48px;
+  text-align: center;
+  display: block;
+  background: #fff;
+  border:1px solid #d9d9d9;
+  border-radius: 5px;
 }
 .signup_btn {
   display: flex;
@@ -152,19 +245,57 @@ export default {
 .signup_btn:hover {
   box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.36);
 }
+.login_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 51px;
+  border: 3px solid transparent;
+  border-radius: 100px;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #2c3af1 0%, #ed32d1 100%); 
+  box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.18);
+  transition: box-shadow 0.3s ease-in;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 100%;
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: #000;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
 .or_p {
-  margin: 32px auto 12px;
+  margin: 0 auto 20px;
   font-family: "Pretendard";
   font-size: 0.875rem;
   line-height: 150%;
   text-align: center;
-  color: #9397a2;
+  color: #1D2232;
+  font-weight:500;
+}
+.lineBox {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:15px 0;
+}
+.lineBox .grayLine {
+  width:44%;
+  height:1px;
+  background: #e1e1e1;
 }
 .sns_wrap {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 12px;
+  padding-bottom:25px;
+  border-bottom:1px dotted #e1e1e1;
+  margin-bottom:30px;
 }
 .sns_row {
   width: 100%;

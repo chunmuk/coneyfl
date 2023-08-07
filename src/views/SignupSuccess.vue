@@ -347,6 +347,7 @@ export default {
   }
   .btnWrap {
     width:100%;
+    max-width: 450px;
     margin:100px auto;
   }
   .fixedBox {
@@ -364,6 +365,12 @@ export default {
     margin: 0 auto;
     cursor: pointer;
   }
+}
+@media (max-width: 500px) {
+  .btnWrap{
+    max-width: 280px;
+  }
   
 }
+
 </style>

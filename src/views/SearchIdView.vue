@@ -5,8 +5,8 @@
         <!-- 모달 내용 -->
         <template v-slot:modal_txt>아이디 찾기가 완료되었습니다.</template>
         <template v-slot:modal_subtxt>abcd***@gmail.com</template>
-        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal">로그인</ButtonBlue></template>
-        <template v-slot:modal_close_txt02><ButtonWht @click="closeModal">비밀번호 찾기</ButtonWht></template>
+        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal"><router-link to="/login">로그인</router-link></ButtonBlue></template>
+        <template v-slot:modal_close_txt02><ButtonWht @click="closeModal"><router-link to="/searchPwd">비밀번호 찾기</router-link></ButtonWht></template>
       </Modal02>
       
       <LoginHeader>

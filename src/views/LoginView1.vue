@@ -3,8 +3,8 @@
     <div class="sub_center">
       <Modal01 v-if="showModal" @close="showModal = false">
         <!-- 모달 내용 -->
-        <template v-slot:modal_txt>서비스 준비중입니다.</template>
-        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal">확인</ButtonBlue></template>
+        <template v-slot:modal_txt>{{ modalTxt }}</template>
+        <template v-slot:modal_close_txt01><ButtonBlue @click="closeModal">{{ modalCloseTxt }}</ButtonBlue></template>
       </Modal01>
       
       <LoginHeader>
@@ -105,6 +105,8 @@ export default {
   data() {
     return {
       showModal: false,
+      modalTxt: "",
+      modalCloseTxt: "",
     };
   },
   methods: {
@@ -114,7 +116,9 @@ export default {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (!emailValue) {
-        alert("이메일을 입력해주세요.");
+        this.showModal = true;
+        this.modalTxt = "이메일을 입력해주세요";
+        this.modalCloseTxt = "확인";
         emailInput.focus();
         return;
       }
@@ -129,14 +133,22 @@ export default {
       const passwordValue = passwordInput.value.trim();
 
       if (!passwordValue) {
-        alert("비밀번호를 입력해주세요.");
+        this.showModal = true;
+        this.modalTxt = "비밀번호를 입력해주세요";
+        this.modalCloseTxt = "확인";
         passwordInput.focus();
         return;
       }
-      router.push("/signup2");
+
+      this.showModal = true;
+      this.modalTxt = "서비스 준비중입니다.";
+      this.modalCloseTxt = "확인";
+      //router.push("/signup2");
     },
     closeModal() {
       this.showModal = false;
+      this.modalTxt = "서비스 준비중입니다.";
+      this.modalCloseTxt = "확인";
     },
   },
 };

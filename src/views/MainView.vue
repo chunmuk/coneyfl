@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header2></Header2>
 
     <div class="main">
       <Background />
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Header from "@/components/layout/Header.vue";
+import Header2 from "@/components/layout/Header2.vue";
 import Footer from "@/components/layout/Footer.vue";
 import Background from "@/components/common/Backgorund.vue";
 import MainVisual from "@/components/layout/main/MainVisual.vue";
@@ -39,7 +39,7 @@ import IconMove from "@/components/layout/main/IconMove.vue";
 
 export default {
   components: {
-    Header,
+    Header2,
     Footer,
     Background,
     MainVisual,

@@ -64,7 +64,7 @@
       </FormItem>
 
       <!-- input checkbox02 -->
-      <FormItem>
+      <FormItem class="no_epc">
         <template v-slot:q_tit>
           보유 스킬을 상/중/하로 선택 해주세요.
         </template>
@@ -189,7 +189,7 @@
         <template v-slot:input_type>
           <Radio
             v-for="item in portfolioNumList"
-            v-model="user.portfolioNum"
+            :key="item.key"
             :name="'portfolioNum'"
             :id="`portfolioNum${item.key}`"
             :value="item.value"
@@ -201,7 +201,7 @@
       </FormItem>
 
       <!-- input file-->
-      <FormItem>
+      <FormItem  v-if="showFileInput">
         <template v-slot:q_tit
           >귀하의 대표 포트폴리오 영상파일 3개 이상 업로드
           해주세요.(포트폴리오Reel 영상 제외)</template
@@ -212,14 +212,14 @@
           프로젝트 추천을 위한 업무 이외의 용도로 사용되지 않습니다.
         </template>
         <template v-slot:input_type>
-          <FileInput
+          <FileInput3
             :name="'portfolio'"
             :msg="'선택된 파일 없음'"
             v-model="user.portfoliFile"
             @onChangeFile="changedFilie"
             @onRemoveFiles="removeFiles"
           >
-          </FileInput>
+          </FileInput3>
         </template>
       </FormItem>
 
@@ -368,19 +368,48 @@
       </FormItem>
 
       <div class="term_wrap">
-        <CheckBoxStyle01>
+        <CheckBoxStyle01
+          v-for="(item, i) in agreeList"
+          :key="agree"
+          name="agree01"
+          :value="item"
+          @agreeChange="onAgreeChanged"
+        >
           <router-link to="/term" class="main_color">
             개인정보 수집 · 이용
           </router-link>
           에 동의합니다.
         </CheckBoxStyle01>
-        <CheckBoxStyle01>
+        <CheckBoxStyle01
+         v-for="(item, i) in agreeList02"
+          :key="agree"
+          name="agree02"
+          :value="item"
+          @agreeChange="onAgreeChanged"
+        >
           <router-link to="/term2" class="main_color">이용약관</router-link>에
           동의합니다.
         </CheckBoxStyle01>
       </div>
     </div>
     <Button @click="submitForm()" class="btn_wrap">제출하기</Button>
+
+    <div v-if="isLoading" class="loading-modal">
+      <div class="container">
+        <div class="dot dot-1"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
 
     <Modal v-if="this.openModal == true">
       <template v-slot:text01>제출이 완료되었습니다!</template>
@@ -403,6 +432,7 @@ import CheckBoxStyle01 from "@/components/common/CheckBoxStyle01.vue";
 import CheckBoxStyle02 from "@/components/common/CheckBoxStyle02.vue";
 import Radio from "@/components/common/Radio.vue";
 import FileInput from "@/components/common/FileInput.vue";
+import FileInput3 from "@/components/common/FileInput3.vue";
 import SelectBox from "@/components/common/SelectBox.vue";
 import Button from "@/components/common/Button.vue";
 import Modal from "@/components/layout/form/Modal.vue";
@@ -414,6 +444,7 @@ import VueDatePicker from "vue3-datepicker";
 export default {
   data() {
     return {
+      isLoading: false,
       openModal: false,
       user: {
         nickname: "",
@@ -457,6 +488,12 @@ export default {
         "3~5년차 이하",
         "6~10년차 이하",
         "11년차 이상",
+      ],
+      agreeList: [
+        "agree01",
+      ],
+      agreeList02: [
+        "agree02",
       ],
       skilList: [
         {
@@ -637,6 +674,7 @@ export default {
           value: "50개 이상",
         },
       ],
+      showFileInput: true,
       whyList: [
         {
           key: "01",
@@ -728,6 +766,7 @@ export default {
     CheckBoxStyle02,
     Radio,
     FileInput,
+    FileInput3,
     SelectBox,
     Button,
     Modal,
@@ -786,7 +825,8 @@ export default {
       this.user.area = value;
     },
     portfolioNumChanged(value) {
-      this.user.portfolioNum = value;
+      this.modelValue = value;
+      this.showFileInput = value !== "없음";
     },
     WhyChanged(value) {
       this.user.why = value;
@@ -889,7 +929,13 @@ export default {
       
       */
 
-      this.openModal = true; //팝업창 호출
+      this.isLoading = true; // 로딩 상태 활성화
+
+      // setTimeout을 이용하여 2초 후에 모달 오픈
+      setTimeout(() => {
+        this.isLoading = false; // 로딩 상태 비활성화
+        this.openModal = true; // 모달 활성화
+      }, 4000);
 
       /* 
      axios
@@ -933,6 +979,89 @@ export default {
 .btn_wrap {
   margin: 100px auto 200px;
 }
+.loading-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 조정 가능 */
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  filter: url('#goo');
+  animation: rotate-move 2s ease-in-out infinite;
+}
+.dot { 
+  width: 70px;
+  height: 70px;
+  border-radius: 80%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.dot-3 {
+  background-color: #f74d75;
+  animation: dot-3-move 2s ease infinite;
+}
+
+.dot-2 {
+  background-color: #10beae;
+  animation: dot-2-move 2s ease infinite;
+}
+
+.dot-1 {
+  background-color: #ffe386;
+  animation: dot-1-move 2s ease infinite;
+}
+
+@keyframes dot-3-move {
+  20% {transform: scale(1)}
+  45% {transform: translateY(-18px) scale(.45)}
+  60% {transform: translateY(-40px) scale(.45)}
+  80% {transform: translateY(-40px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes dot-2-move {
+  20% {transform: scale(1)}
+  45% {transform: translate(-16px, 12px) scale(.45)}
+  60% {transform: translate(-40px, 40px) scale(.45)}
+  80% {transform: translate(-40px, 40px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes dot-1-move {
+  20% {transform: scale(1)}
+  45% {transform: translate(16px, 12px) scale(.45)}
+  60% {transform: translate(40px, 40px) scale(.45)}
+  80% {transform: translate(40px, 40px) scale(.45)}
+  100% {transform: translateY(0px) scale(1)}
+}
+
+@keyframes rotate-move {
+  55% {transform: rotate(0deg)}
+  80% {transform: rotate(360deg)}
+  100% {transform: rotate(360deg)}
+}
+
 @media (max-width: 768px) {
   .v3dp__datepicker {
     width: 100%;

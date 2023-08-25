@@ -11,7 +11,8 @@
             로그인
           </div>
         </router-link>
-        
+      -->
+      
 
         <router-link to="/signup">
           <div class="header_btn btn_sign_up">
@@ -19,8 +20,8 @@
             회원가입
           </div>
         </router-link>
-        -->
       </div>
+      
       
       <div class="flexWrap mobileMenu">
         <router-link to="/login">

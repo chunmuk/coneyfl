@@ -12,8 +12,27 @@
           로그인
         </template>
       </LoginHeader>
-      <form name="frm">
-        <div class="login_wrap">
+      
+      <div class="login_wrap">
+        <p class="or_p">SNS 계정으로 시작하기</p>
+        <div class="sns_wrap">
+          <div class="sns_row" @click="showModal = true">
+            <div id="kakao" class="sns_btn">
+              <img src="/images/kakaotalk.svg" />
+            </div>
+            <p>카카오톡</p>
+          </div>
+        
+          <div class="sns_row" @click="showModal = true">
+            <div id="goggle" class="sns_btn">
+              <img src="/images/google.svg" />
+            </div>
+            <p>구글</p>
+          </div>
+        </div>
+
+        <form name="frm">
+          
           <div class="login_row">
             <p>이메일</p>
             <input type="text" name="email" ref="emailInput" placeholder="이메일을 입력해주세요."/>
@@ -46,23 +65,6 @@
             </router-link>
           </div>
           -->
-
-          <div class="sns_wrap">
-            <div class="sns_row" @click="showModal = true">
-              <div id="kakao" class="sns_btn">
-                <img src="/images/kakaotalk.svg" />
-              </div>
-              <p>카카오톡</p>
-            </div>
-          
-            <div class="sns_row" @click="showModal = true">
-              <div id="goggle" class="sns_btn">
-                <img src="/images/google.svg" />
-              </div>
-              <p>구글</p>
-            </div>
-          </div>
-          
           <div class="or_p">
             <div class="flexWrap">
               <div>
@@ -76,9 +78,8 @@
               </div>
             </div>
           </div>
-
-        </div>
-      </form>
+        </form>
+      </div>
       <LoginFooter></LoginFooter>
     </div>
   </section>
@@ -218,12 +219,13 @@ export default {
   box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.36);
 }
 .or_p {
-  margin: 32px auto 12px;
+  margin: 0 auto 20px;
   font-family: "Pretendard";
   font-size: 0.875rem;
   line-height: 150%;
   text-align: center;
-  color: #1d2232;
+  color: #1D2232;
+  font-weight:500;
 }
 .or_p .flexWrap{
   display:flex;
@@ -242,6 +244,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
+  padding-bottom:25px;
+  border-bottom:1px dotted #e1e1e1;
+  margin-bottom:30px;
 }
 .sns_row {
   width: 100%;

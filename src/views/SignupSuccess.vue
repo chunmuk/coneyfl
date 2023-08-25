@@ -23,7 +23,9 @@
           <div class="content subContent">
             <img src="/images/info.png" alt="">포트폴리오는 업무 피팅 및 배정 용도 외로 활용되지 않으며, 포트폴리오 채택 시 채택 보상금이 지급됩니다.
           </div>
-          <div class="btnBox"><ButtonBlue @click="showModal = true">추가 포트폴리오 등록</ButtonBlue></div>
+          <div class="btnBox">
+            <!--<ButtonBlue @click="showModal = true">추가 포트폴리오 등록</ButtonBlue>-->
+          </div>
         </div>
 
         <div class="section02">
@@ -97,10 +99,12 @@
             </div>
           </div>
         </div>
-
+        
         <div class="btnWrap">
+          <!--
           <ButtonWht @click="showModal = true">FAQ & 1:1 문의</ButtonWht>
           <ButtonBlue @click="showModal = true">내 라운지 홈</ButtonBlue>
+          -->
         </div>
 
       </div>

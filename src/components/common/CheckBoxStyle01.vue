@@ -47,6 +47,10 @@ export default {
       this.$emit("carrerChange", checked, this.value);
       this.$refs.carrerchk.focus();
     },
+    onAgreeChanged(checked) {
+      this.$emit("agreeChange", checked, this.value);
+      this.$refs.carrerchk.focus();
+    },
   },
 };
 </script>

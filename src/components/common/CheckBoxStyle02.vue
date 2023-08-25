@@ -2,55 +2,16 @@
   <div class="q_row_style01 check_level">
     <div class="q_answer_tit"><slot></slot></div>
     <div class="q_answer_content">
-      <div class="checkbox_style02">
+      <div class="checkbox_style02" v-for="level in levels" :key="level">
         <input
           type="checkbox"
-          :id="`${name}_1`"
+          :id="`${name}_${level}`"
           :name="name"
-          value="상"
+          :value="level"
           v-model="skil.level"
+          @click="handleCheckboxClick(level)"
         />
-        <label :for="`${name}_1`">상</label>
-      </div>
-      <div class="checkbox_style02">
-        <input
-          type="checkbox"
-          :id="`${name}_2`"
-          :name="name"
-          value="중상"
-          v-model="skil.level"
-        />
-        <label :for="`${name}_2`">중상</label>
-      </div>
-      <div class="checkbox_style02">
-        <input
-          type="checkbox"
-          :id="`${name}_3`"
-          :name="name"
-          value="중"
-          v-model="skil.level"
-        />
-        <label :for="`${name}_3`">중</label>
-      </div>
-      <div class="checkbox_style02">
-        <input
-          type="checkbox"
-          :id="`${name}_4`"
-          :name="name"
-          value="중하"
-          v-model="skil.level"
-        />
-        <label :for="`${name}_4`">중하</label>
-      </div>
-      <div class="checkbox_style02">
-        <input
-          type="checkbox"
-          :id="`${name}_5`"
-          :name="name"
-          value="하"
-          v-model="skil.level"
-        />
-        <label :for="`${name}_5`">하</label>
+        <label :for="`${name}_${level}`">{{ level }}</label>
       </div>
     </div>
   </div>
@@ -67,7 +28,7 @@ export default {
       type: Number,
       default: 0,
     },
-    value: "",
+    value: String,
   },
   data() {
     return {
@@ -75,15 +36,19 @@ export default {
         name: this.value,
         level: [],
       },
+      levels: ["상", "중상", "중", "중하", "하"],
     };
   },
-  watch: {
-    "skil.level": {
-      handler: "emitLevel",
-      deep: true,
-    },
-  },
   methods: {
+    handleCheckboxClick(selectedLevel) {
+      const index = this.skil.level.indexOf(selectedLevel);
+      if (index !== -1) {
+        this.skil.level.splice(index, 1); // Unselect if already selected
+      } else {
+        this.skil.level = [selectedLevel]; // Select if not selected
+      }
+      this.emitLevel();
+    },
     emitLevel() {
       this.$emit("skilCheck", this.skil, this.index);
     },

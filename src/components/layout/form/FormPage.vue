@@ -3,7 +3,7 @@
     <div class="sub_txt">
       <div class="flexBox">
         <div class="imgBox">
-          <img src="images/smile_icon01.svg" alt="">
+          <img src="/images/smile_icon01.svg" alt="">
         </div>
         <div class="txtBox">환영합니다.</div>
       </div>
@@ -13,7 +13,7 @@
       <div class="flexBox">
         <div class="circleBox">
           <div>
-            <img src="images/circle_icon01.svg" alt="">
+            <img src="/images/circle_icon01.svg" alt="">
           </div>
           <div class="grayLine"></div>
           <div class="txtBox">
@@ -25,7 +25,7 @@
         </div>
         <div class="circleBox">
           <div>
-            <img src="images/circle_icon02.svg" alt="">
+            <img src="/images/circle_icon02.svg" alt="">
           </div>
           <div class="grayLine"></div>
           <div class="txtBox">
@@ -37,7 +37,7 @@
         </div>
         <div class="circleBox">
           <div>
-            <img src="images/circle_icon03.svg" alt="">
+            <img src="/images/circle_icon03.svg" alt="">
           </div>
           <div class="grayLine"></div>
           <div class="txtBox">

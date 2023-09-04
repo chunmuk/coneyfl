@@ -102,6 +102,7 @@ export default {
   width:28%;
   text-align:center;
 }
+
 .form_term .flexBox .grayLine {
   width:100%;
   height:1px;
@@ -123,15 +124,17 @@ export default {
 
 @media (max-width: 768px) {
   .sub_txt {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom:0;
+    margin-top:60px;
   }
   .sub_txt .flexBox{
     margin-bottom:10px;
   }
+  
   .form_term {
-    padding: 20px 8px;
-    margin:20px 0;
+    padding: 0;
+    margin:0;
   }
   .form_term .flexBox {
     display: block;
@@ -140,17 +143,25 @@ export default {
   .form_term .flexBox .circleBox {
     font-size: 0.875rem;
     width: 100%;
-    padding:50px 0 70px;
+    padding:40px 0 60px;
     border-bottom:1px solid #e1e1e1;
   }
   .sub_txt .flexBox .imgBox{
-    max-width: 34px;
+    max-width: 30px;
+  }
+  .form_term .flexBox .circleBox img{
+    max-width: 110px;
+
   }
   .form_term .flexBox .circleBox:last-child {
     border-bottom:none;
   }
+  .form_term .flexBox .txtBox {
+    font-size:20px;
+  }
   .form_term .flexBox .txtBox p {
-    margin:10px 0 20px;
+    margin:0;
+    margin-bottom:20px;
   }
   .form_term .flexBox .grayLine {
     display:none;

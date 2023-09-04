@@ -35,8 +35,12 @@
   box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.36);
 }
 @media (max-width: 768px) {
+  .slide_btn {
+    width: 140px;
+    height: 45px;
+  }
   .btn_text {
-    font-size: 1.063rem;
+    font-size: 16px;
   }
 }
 

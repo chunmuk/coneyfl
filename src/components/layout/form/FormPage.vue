@@ -2,7 +2,9 @@
   <div class="sub_center">
     <div class="sub_txt">
       <div class="flexBox">
-        <div class="imgBox"><img src="images/smile_icon01.svg"></div>
+        <div class="imgBox">
+          <img src="images/smile_icon01.svg" alt="">
+        </div>
         <div class="txtBox">환영합니다.</div>
       </div>
       <p>활동하시고자 하는 분야를<br class="mShow"> 선택해 주세요.</p>

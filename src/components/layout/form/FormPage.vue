@@ -1,31 +1,28 @@
 <template>
   <div class="sub_center">
     <div class="sub_txt">
-      <p>코니플은 재능있는 크루들을 기다리고 있습니다.</p>
-      <p class="main_color">코니 등록하기</p>
+      <p><span class="fw_normal">코니가 누릴 수 있는</span>혜택은 다양합니다.</p><br>
+      <p>등록만 해놔도 <span class="main_color">원하는 시간</span>에 <span class="main_color">원하는 양만큼</span></p>
+      <p><span class="main_color">원하는 업무</span>를 할 수 있어요.</p>
     </div>
     <div class="form_term">
-      <ul>
-        <li>
-          등록하신 정보는 개인 맞춤 프로젝트 배정과 코니 성장 지원에만 활용되며,
-          다른 용도로 사용되지 않습니다.
-        </li>
-        <li>
-          코니플은 스마트 매니징 서비스로 일반 매칭 서비스(크몽, 숨고 등)와
-          달라, 클라이언트에게 개인 아이덴티티 정보(실명, 경력, 근무 회사 등)는
-          <br class="no_br" />노출하지 않고 있음을 알려드립니다.
-        </li>
-        <li>
-          코니의 등록하고 일정한 절차를 마치면 task ID가 발급되며 영상크루님들의
-          원하시는 일정에 맞춤형 업무부터 먼저 배정됩니다.
-        </li>
-        <li>
-          코니에 등록을 마치셨다고 해서, 바로 업무를 해야 하는 것은 아니며
-          카카오톡으로 전달되는 &lt;오더메시지&gt; 에 원하시는 업무만 승인해서
-          진행할 수 있습니다.
-        </li>
-        <li>기타 궁금한 부분은 help@ucone.me 로 문의 바랍니다.</li>
-      </ul>
+      <div>
+        <div>
+          <router-link to="/form01" class="btn_wrap">
+            <ButtonBlue>제작자</ButtonBlue>
+          </router-link>
+        </div>
+        <div>
+          <router-link to="/form02" class="btn_wrap">
+            <ButtonBlue>기획자</ButtonBlue>
+          </router-link>
+        </div>
+        <div>
+          <router-link to="/form03" class="btn_wrap">
+            <ButtonBlue>디지털 아티스트</ButtonBlue>
+          </router-link>
+        </div>
+      </div>
     </div>
 
     <Form></Form>
@@ -33,13 +30,15 @@
 </template>
 
 <script>
-import Form from "@/components/layout/form/Form.vue";
+//import Form from "@/components/layout/form/Form.vue";
+import ButtonBlue from "@/components/common/ButtonBlue.vue";
 
 //import axios from "axios";
 
 export default {
   components: {
-    Form,
+    //Form,
+    ButtonBlue,
   },
 };
 </script>
@@ -53,42 +52,23 @@ export default {
   text-align: center;
   color: #1d2232;
 }
+.fw_normal {
+  font-weight: normal;
+}
 .main_color {
   color: #2c3af1;
 }
 .form_term {
-  width: 100%;
-  padding: 40px 30px;
-  background: #f8f8fe;
-  border-radius: 12px;
-  box-sizing: border-box;
   margin: 60px 0;
 }
-.form_term ul {
-  width: 100%;
-}
-.form_term ul li {
+.form_term > div {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 24px;
-  font-size: 1.25rem;
-  line-height: 150%;
-  color: #1d2232;
+  justify-content: space-between;
 }
-.form_term ul li:last-child {
-  margin-bottom: 0;
+.form_term > div > div {
+  margin-bottom: 20px;;
 }
-.form_term ul li::before {
-  content: "";
-  width: 12px;
-  height: 15px;
-  background: url("/images/check.svg") no-repeat center / contain;
-  flex-shrink: 0;
-}
-.form_wrap {
-  width: 100%;
-}
+
 
 @media (max-width: 768px) {
   .sub_txt {
@@ -97,7 +77,10 @@ export default {
   .form_term {
     padding: 20px 8px;
   }
-  .form_term ul li {
+  .form_term > div {
+    display: block;
+  }
+  .form_term > div > div {
     font-size: 0.875rem;
     margin-bottom: 12px;
   }

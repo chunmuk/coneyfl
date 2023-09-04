@@ -5,12 +5,12 @@
       class="chk_box"
       :name="name"
       :value="value"
-      :id="value"
+      :id="name+value"
       :checked="checked"
       @change="onDataChanged"
       :ref="`${name}chk`"
     />
-    <label :for="value"><slot></slot></label>
+    <label :for="name+value"><slot></slot></label>
   </div>
 </template>
 
@@ -37,11 +37,23 @@ export default {
         this.onCircleChanged(checked);
       } else if (this.name === "carrer") {
         this.onCarrerChanged(checked);
+      } else if (this.name === "plantype") {
+        this.onPlantypeChanged(checked);
+      } else if (this.name === "genre") {
+        this.onGenreChanged(checked);
       }
+    },
+    onPlantypeChanged(checked) {
+      this.$emit("plantypeChange", checked, this.value);
+      this.$refs.plantypechk.focus();
     },
     onCircleChanged(checked) {
       this.$emit("circleChange", checked, this.value);
       this.$refs.circlechk.focus();
+    },
+    onGenreChanged(checked) {
+      this.$emit("genreChange", checked, this.value);
+      this.$refs.generechk.focus();
     },
     onCarrerChanged(checked) {
       this.$emit("carrerChange", checked, this.value);

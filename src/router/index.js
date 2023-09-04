@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainView from "@/views/MainView.vue";
 import FormView from "@/views/FormView.vue";
+import FormView01 from "@/views/FormView01.vue";
+import FormView02 from "@/views/FormView02.vue";
+import FormView03 from "@/views/FormView03.vue";
 import MoreView from "@/views/MoreView.vue";
 import TermView from "@/views/TermView.vue";
 import TermView02 from "@/views/TermView02.vue";
@@ -28,6 +31,18 @@ export default createRouter({
     {
       path: "/form",
       component: FormView,
+    },
+    {
+      path: "/form01",
+      component: FormView01,
+    },
+    {
+      path: "/form02",
+      component: FormView02,
+    },
+    {
+      path: "/form03",
+      component: FormView03,
     },
     {
       path: "/more",

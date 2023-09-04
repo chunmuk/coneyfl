@@ -156,6 +156,7 @@ input:focus {
   padding: 20px;
   box-sizing: border-box;
 }
+
 /*check box*/
 .checkbox_default input[type="checkbox"] {
   /* display: none; */

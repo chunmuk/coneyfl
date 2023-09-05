@@ -14,7 +14,7 @@
       -->
       
 
-        <router-link to="/signup">
+        <router-link to="/form">
           <div class="header_btn btn_sign_up">
             <img src="/images/signupBtn.svg" />
             회원가입
@@ -32,7 +32,7 @@
         </router-link>
         -->
 
-        <router-link to="/signup">
+        <router-link to="/form">
           <div class="header_btn">
             <img src="/images/signupBtn_m.svg" />
           </div>

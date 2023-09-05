@@ -42,13 +42,14 @@
             </div>
             <p>카카오톡</p>
           </div>
-        
+          <!--
           <div class="sns_row" @click="showModal = true">
             <div id="goggle" class="sns_btn">
               <img src="/images/google.svg" />
             </div>
             <p>구글</p>
           </div>
+          -->
         </div>
         
         <p class="or_p">이메일로 시작하기</p>
@@ -97,15 +98,17 @@
           </div>
 
           <div class="signup_btn" @click="chkForm">코니플 가입하기</div>
+          <!-- 
           <div class="lineBox">
             <div class="grayLine"></div>
             <div class="txtBox">or</div>
             <div class="grayLine"></div>
           </div>
-            
+           
           <router-link to="/login">
            <div class="login_btn">로그인</div>
           </router-link>
+          -->
         </form>
       </div>
       <SingupFooter></SingupFooter>

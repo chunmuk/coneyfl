@@ -7,7 +7,7 @@
         </div>
         <div class="foot_right">
           <ul>
-            <li><router-link to="/more">회사소개</router-link></li>
+            <li><!--<router-link to="/more">-->회사소개<!--</router-link>--></li>
             <li><router-link to="/term2">이용약관</router-link></li>
             <li class="bold"><router-link to="/term">개인정보처리방침</router-link></li>
             <!--<li><a href="">고객센터</a></li>-->

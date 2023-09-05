@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .sub_txt {
-  margin: 50px 0 80px;
+  margin: 50px 0 0;
   font-weight: 800;
   font-size: 3rem;
   line-height: 150%;
@@ -69,7 +69,7 @@ export default {
   background: #f8f8fe;
   border-radius: 12px;
   box-sizing: border-box;
-  margin: 60px 0;
+  margin: 0;
 }
 .form_term ul {
   width: 100%;
@@ -100,7 +100,6 @@ export default {
 @media (max-width: 768px) {
   .sub_txt {
     font-size: 1.25rem;
-    margin-bottom:0;
   }
   .circleBox img{
     max-width: 110px;

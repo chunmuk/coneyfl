@@ -69,7 +69,7 @@ export default {
   background: #f8f8fe;
   border-radius: 12px;
   box-sizing: border-box;
-  margin: 0;
+  margin: 20px 0;
 }
 .form_term ul {
   width: 100%;
@@ -106,6 +106,7 @@ export default {
   }
   .form_term {
     padding: 20px 8px;
+    margin: 10px 0;
   }
   .form_term ul li {
     font-size: 0.875rem;

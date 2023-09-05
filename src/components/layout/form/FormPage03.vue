@@ -12,7 +12,7 @@
       <ul>
         <li>
           아티스트는 영상 혹은 디지털미디어(디지털인터페이스 포함) 등 디지털매체 전반에 이미지(캐릭터, 배경, 일러스트 등), 
-          디자인(그래픽, 아이덴티티, 패키지 등) 등을 작업하여 소스(에셋)으로 제공하는 디지털 창작자를 말합니다(예, 3D 모델러, 일러스트레이터, 그래픽디자이너 등).   
+          디자인(그래픽, 아이덴티티, 패키지 등) 등을 작업하여 소스(에셋)으로 제공하는 디지털 창작자를 말합니다.(예, 3D 모델러, 일러스트레이터, 그래픽디자이너 등).   
         </li>
         <li>
           등록하신 정보는 개인 맞춤 프로젝트 배정과 코니 성장 지원에만 활용되며,
@@ -70,7 +70,7 @@ export default {
   background: #f8f8fe;
   border-radius: 12px;
   box-sizing: border-box;
-  margin: 0;
+  margin: 20px 0;
 }
 .form_term ul {
   width: 100%;
@@ -107,6 +107,7 @@ export default {
   }
   .form_term {
     padding: 20px 8px;
+    margin: 10px 0;
   }
   .form_term ul li {
     font-size: 0.875rem;

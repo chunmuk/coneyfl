@@ -2,13 +2,17 @@
   <div class="sub_center">
     <div class="sub_txt">
       <p>코니플은 재능있는 영상크루들을 기다리고 있습니다.</p>
-      <p class="main_color">코니 등록하기</p>
+      <div class="circleBox">
+        <div>
+          <img src="/images/circle_icon03.svg" alt="">
+        </div>
+      </div>
     </div>
     <div class="form_term">
       <ul>
         <li>
           아티스트는 영상 혹은 디지털미디어(디지털인터페이스 포함) 등 디지털매체 전반에 이미지(캐릭터, 배경, 일러스트 등), 
-          디자인(그래픽, 아이덴티티, 패키지 등) 등을 작업하여 소스(에셋)으로 제공하는 디지털 창작자를 말한다(예, 3D 모델러, 일러스트레이터, 그래픽디자이너 등).   
+          디자인(그래픽, 아이덴티티, 패키지 등) 등을 작업하여 소스(에셋)으로 제공하는 디지털 창작자를 말합니다(예, 3D 모델러, 일러스트레이터, 그래픽디자이너 등).   
         </li>
         <li>
           등록하신 정보는 개인 맞춤 프로젝트 배정과 코니 성장 지원에만 활용되며,
@@ -28,7 +32,7 @@
           카카오톡으로 전달되는 &lt;오더메시지&gt; 에 원하시는 업무만 승인해서
           진행할 수 있습니다.
         </li>
-        <li>기타 궁금한 부분은 master@usuaia.me 로 문의 바랍니다.</li>
+        <li>기타 궁금한 부분은 support@coneyfl.me 로 문의 바랍니다.</li>
       </ul>
     </div>
 
@@ -97,6 +101,10 @@ export default {
 @media (max-width: 768px) {
   .sub_txt {
     font-size: 1.25rem;
+    margin-bottom:0;
+  }
+  .circleBox img{
+    max-width: 110px;
   }
   .form_term {
     padding: 20px 8px;

@@ -19,7 +19,7 @@
     linear-gradient(90deg, #2c3af1 0%, #ed32d1 100%);
   background-origin: border-box;
   background-clip: content-box, border-box;
-  box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.18);
+  box-shadow: 0px 4px 16px rgba(142, 54, 225, 0.18);
   transition: box-shadow 0.3s ease-in;
   margin: 0 auto;
   cursor: pointer;
@@ -32,7 +32,8 @@
   text-align: center;
 }
 .slide_btn:hover {
-  box-shadow: 4px 16px 26px rgba(142, 54, 225, 0.36);
+  background: linear-gradient(90deg, #2c3af1 0%, #ed32d1 100%);
+  color:#fff;
 }
 @media (max-width: 768px) {
   .slide_btn {

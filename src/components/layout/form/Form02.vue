@@ -109,17 +109,16 @@
         </template>
 
         <template v-slot:input_type>
-          <CheckBoxStyle01
-            v-for="(item, i) in carrerList"
-            :key="item"
-            class="q_row_style01"
+          <Radio
+            v-for="item in carrerList"
             v-model="user.carrer"
-            name="carrer"
-            :value="item"
+            :name="'carrer'"
+            :id="`carrer${item.key}`"
+            :value="item.value"
             @carrerChange="onCarrerChanged"
           >
-            {{ item }}
-          </CheckBoxStyle01>
+            {{ item.value }}
+          </Radio>
         </template>
       </FormItem>
 
@@ -558,11 +557,26 @@ export default {
         "게임콘텐츠",
       ],
       carrerList: [
-        "신입",
-        "2년차 이하",
-        "3~5년차 이하",
-        "6~10년차 이하",
-        "11년차 이상",
+        {
+          key: "01",
+          value: "신입",
+        },
+        {
+          key: "02",
+          value: "2년차 이하",
+        },
+        {
+          key: "03",
+          value: "3~5년차 이하",
+        },
+        {
+          key: "04",
+          value: "6~10년차 이하",
+        },
+        {
+          key: "05",
+          value: "11년차 이상",
+        },
       ],
       agreeList: [
         "agree01",

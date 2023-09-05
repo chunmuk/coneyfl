@@ -2,7 +2,11 @@
   <div class="sub_center">
     <div class="sub_txt">
       <p>코니플은 재능있는 영상크루들을 기다리고 있습니다.</p>
-      <p class="main_color">코니 등록하기</p>
+      <div class="circleBox">
+        <div>
+          <img src="/images/circle_icon02.svg" alt="">
+        </div>
+      </div>
     </div>
     <div class="form_term">
       <ul>
@@ -28,7 +32,7 @@
           카카오톡으로 전달되는 &lt;오더메시지&gt; 에 원하시는 업무만 승인해서
           진행할 수 있습니다.
         </li>
-        <li>기타 궁금한 부분은 master@usuaia.me 로 문의 바랍니다.</li>
+        <li>기타 궁금한 부분은 support@coneyfl.me 로 문의 바랍니다.</li>
       </ul>
     </div>
 
@@ -97,6 +101,10 @@ export default {
 @media (max-width: 768px) {
   .sub_txt {
     font-size: 1.25rem;
+    margin-bottom:0;
+  }
+  .circleBox img{
+    max-width: 110px;
   }
   .form_term {
     padding: 20px 8px;

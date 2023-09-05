@@ -23,6 +23,7 @@
       </div>
       
       <div class="flexWrap mobileMenu">
+        <!--
         <router-link to="/login">
           <div class="header_btn">
             <img src="/images/loginBtn_m.svg" />
@@ -34,6 +35,7 @@
             <img src="/images/signupBtn_m.svg" />
           </div>
         </router-link>
+        -->
       </div>
 
     </div>

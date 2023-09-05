@@ -24,11 +24,13 @@
       
       
       <div class="flexWrap mobileMenu">
+        <!--
         <router-link to="/login">
           <div class="header_btn">
             <img src="/images/loginBtn_m.svg" />
           </div>
         </router-link>
+        -->
 
         <router-link to="/signup">
           <div class="header_btn">
